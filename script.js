@@ -1,321 +1,169 @@
-// PRIME LUX CAR RENTALS
-// script.js
+/* ===========================
+   PRIME LUX SCRIPT V2
+=========================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+// Smooth scrolling for menu links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
 
-    // ==========================
-    // BOOKING FORM -> WHATSAPP
-    // ==========================
+        const target = document.querySelector(this.getAttribute('href'));
 
-    const bookingForm = document.getElementById("bookingForm");
+        if(target){
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
 
-    if (bookingForm) {
+// Active navigation link
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-        bookingForm.addEventListener("submit", function (e) {
+window.addEventListener("scroll", () => {
 
-            e.preventDefault();
+    let current = "";
 
-            const inputs = bookingForm.querySelectorAll("input, select");
+    sections.forEach(section => {
 
-            const name = inputs[0].value;
-            const phone = inputs[1].value;
-            const vehicle = inputs[2].value;
-            const pickup = inputs[3].value;
-            const returnDate = inputs[4].value;
-            const service = inputs[5].value;
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
 
-            const message =
-`🚗 PRIME LUX CAR RENTALS BOOKING
+        if(pageYOffset >= sectionTop){
+            current = section.getAttribute("id");
+        }
+    });
 
-Name: ${name}
-Phone: ${phone}
+    navLinks.forEach(link => {
 
-Vehicle: ${vehicle}
+        link.classList.remove("active");
 
-Pickup Date: ${pickup}
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+    });
+});
 
-Return Date: ${returnDate}
-
-Service Type: ${service}
-
-Kindly confirm availability and pricing.`;
-
-            const whatsappURL =
-                `https://wa.me/254792214367?text=${encodeURIComponent(message)}`;
-
-            window.open(whatsappURL, "_blank");
-
-        });
-
-    }
-
-    // ==========================
-    // NAVBAR SCROLL EFFECT
-    // ==========================
+// Navbar background on scroll
+window.addEventListener("scroll", () => {
 
     const navbar = document.querySelector(".navbar");
 
-    window.addEventListener("scroll", () => {
+    if(window.scrollY > 50){
+        navbar.style.background = "#000";
+        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.5)";
+    } else {
+        navbar.style.background = "#000";
+        navbar.style.boxShadow = "none";
+    }
+});
 
-        if (window.scrollY > 50) {
+// Reveal animation
+const revealElements = document.querySelectorAll(
+    ".car-card, .fleet-card, .feature, .about"
+);
 
-            navbar.style.background = "rgba(0,0,0,0.95)";
-            navbar.style.boxShadow =
-                "0 10px 30px rgba(0,0,0,0.4)";
-
-        } else {
-
-            navbar.style.background =
-                "rgba(0,0,0,0.85)";
-
-            navbar.style.boxShadow = "none";
-
-        }
-
-    });
-
-    // ==========================
-    // REVEAL ON SCROLL
-    // ==========================
-
-    const revealElements = document.querySelectorAll(
-        ".car-card, .service-card, .review-card, .stat-box"
-    );
-
-    const revealOnScroll = () => {
-
-        revealElements.forEach(el => {
-
-            const top = el.getBoundingClientRect().top;
-
-            if (top < window.innerHeight - 100) {
-
-                el.style.opacity = "1";
-                el.style.transform = "translateY(0)";
-
-            }
-
-        });
-
-    };
+const revealOnScroll = () => {
 
     revealElements.forEach(el => {
 
-        el.style.opacity = "0";
-        el.style.transform = "translateY(40px)";
-        el.style.transition =
-            "all 0.8s ease";
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
 
-    });
-
-    window.addEventListener("scroll", revealOnScroll);
-
-    revealOnScroll();
-
-    // ==========================
-    // COUNTER ANIMATION
-    // ==========================
-
-    const counters =
-        document.querySelectorAll(".stat-box h2");
-
-    counters.forEach(counter => {
-
-        const targetText =
-            counter.innerText;
-
-        const target =
-            parseInt(targetText.replace(/\D/g, ""));
-
-        if (!target) return;
-
-        let count = 0;
-
-        const updateCounter = () => {
-
-            count += Math.ceil(target / 80);
-
-            if (count >= target) {
-
-                counter.innerText = targetText;
-
-            } else {
-
-                if (targetText.includes("%")) {
-
-                    counter.innerText =
-                        count + "%";
-
-                } else if (targetText.includes("+")) {
-
-                    counter.innerText =
-                        count + "+";
-
-                } else {
-
-                    counter.innerText =
-                        count;
-
-                }
-
-                requestAnimationFrame(
-                    updateCounter
-                );
-
-            }
-
-        };
-
-        updateCounter();
-
-    });
-
-    // ==========================
-    // ACTIVE NAV LINK
-    // ==========================
-
-    const sections =
-        document.querySelectorAll("section");
-
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-links a"
-        );
-
-    window.addEventListener("scroll", () => {
-
-        let current = "";
-
-        sections.forEach(section => {
-
-            const sectionTop =
-                section.offsetTop - 150;
-
-            if (
-                pageYOffset >= sectionTop
-            ) {
-                current = section.getAttribute("id");
-            }
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (
-                link.getAttribute("href") ===
-                "#" + current
-            ) {
-                link.classList.add("active");
-            }
-
-        });
-
-    });
-
-    // ==========================
-    // SCROLL TO TOP BUTTON
-    // ==========================
-
-    const scrollBtn =
-        document.createElement("button");
-
-    scrollBtn.innerHTML = "↑";
-
-    scrollBtn.id = "scrollTopBtn";
-
-    document.body.appendChild(scrollBtn);
-
-    scrollBtn.style.cssText = `
-        position:fixed;
-        bottom:100px;
-        right:25px;
-        width:50px;
-        height:50px;
-        border:none;
-        border-radius:50%;
-        background:#D4AF37;
-        color:#000;
-        font-size:22px;
-        cursor:pointer;
-        display:none;
-        z-index:999;
-        font-weight:bold;
-    `;
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 500) {
-
-            scrollBtn.style.display =
-                "block";
-
-        } else {
-
-            scrollBtn.style.display =
-                "none";
-
+        if(elementTop < windowHeight - 100){
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
         }
+    });
+};
 
+revealElements.forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all 0.8s ease";
+});
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+// Book buttons
+document.querySelectorAll(".car-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const car =
+            button.closest(".car-card")?.querySelector("h3")?.innerText ||
+            button.closest(".fleet-card")?.querySelector("h4")?.innerText ||
+            "Vehicle";
+
+        const phone = "254792214367";
+
+        const message =
+            `Hello Prime Lux, I would like to book the ${car}. Please share availability and pricing.`;
+
+        const url =
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+    });
+});
+
+// Fleet image hover zoom
+document.querySelectorAll(".car-card img, .fleet-card img")
+.forEach(img => {
+
+    img.addEventListener("mouseenter", () => {
+        img.style.transform = "scale(1.05)";
+        img.style.transition = "0.4s";
     });
 
-    scrollBtn.addEventListener("click", () => {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
+    img.addEventListener("mouseleave", () => {
+        img.style.transform = "scale(1)";
     });
-
-    // ==========================
-    // LOADING ANIMATION
-    // ==========================
-
-    const loader =
-        document.createElement("div");
-
-    loader.id = "loader";
-
-    loader.innerHTML =
-        "<div class='loader-text'>PrimeLux Car Rentals</div>";
-
-    document.body.appendChild(loader);
-
-    loader.style.cssText = `
-        position:fixed;
-        inset:0;
-        background:#000;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:99999;
-        transition:0.6s;
-    `;
-
-    const loaderText =
-        loader.querySelector(
-            ".loader-text"
-        );
-
-    loaderText.style.cssText = `
-        color:#D4AF37;
-        font-size:2rem;
-        font-weight:800;
-        letter-spacing:2px;
-    `;
-
-    setTimeout(() => {
-
-        loader.style.opacity = "0";
-
-        setTimeout(() => {
-
-            loader.remove();
-
-        }, 600);
-
-    }, 1200);
 
 });
+
+// Counter animation
+function animateValue(el, start, end, duration){
+
+    let startTimestamp = null;
+
+    const step = (timestamp) => {
+
+        if(!startTimestamp) startTimestamp = timestamp;
+
+        const progress = Math.min(
+            (timestamp - startTimestamp) / duration,
+            1
+        );
+
+        el.innerHTML =
+            Math.floor(progress * (end - start) + start);
+
+        if(progress < 1){
+            window.requestAnimationFrame(step);
+        }
+    };
+
+    window.requestAnimationFrame(step);
+}
+
+// Optional statistics section
+document.querySelectorAll(".counter").forEach(counter => {
+
+    const end = parseInt(counter.dataset.target);
+
+    animateValue(counter, 0, end, 2000);
+});
+
+// Console branding
+console.log(`
+====================================
+ PRIME LUX CAR RENTALS
+ Luxury Fleet Booking System
+ Nairobi, Kenya
+ WhatsApp: +254 792 214367
+====================================
+`);
