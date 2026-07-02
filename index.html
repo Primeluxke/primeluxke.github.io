@@ -1,478 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PrimeLux - Luxury Car Hire Nairobi</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Lux Car Rentals | Luxury Car Hire in Nairobi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --black-2:#050505;
+    --black-3:#0f0f0f;
+    --gold:#d79c29;
+    --gold-light:#eab74a;
+    --gold-dim:#8a6a1f;
+    --white:#f7f6f2;
+    --gray:#9c9992;
+    --border:#292520;
+    --radius:5px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{font-family:'Playfair Display',serif;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1440px;margin:0 auto;padding:0 48px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(10,10,10,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 48px;
+    max-width:1440px;margin:0 auto;
+  }
+  .logo{display:flex;flex-direction:column;align-items:flex-start;line-height:1;}
+  .logo-swoosh{height:16px;margin-left:2px;margin-bottom:-2px;}
+  .logo-text .l1{
+    font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);
+    letter-spacing:.3px;
+  }
+  .logo-text .l1 span{color:var(--gold);font-style:italic;font-weight:700;}
+  .logo-text .l2{
+    font-size:10.5px;letter-spacing:4px;color:var(--gray);text-transform:uppercase;
+    margin-top:2px;margin-left:1px;
+  }
+  .logo-badge{
+    width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;color:var(--gold);font-weight:700;font-size:10px;
+    margin:5px auto 0;
+  }
+  nav.main-nav{display:flex;gap:34px;}
+  nav.main-nav a{
+    font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--white);
+    font-weight:500;transition:color .2s;position:relative;padding-bottom:4px;
+  }
+  nav.main-nav a.active{color:var(--gold);border-bottom:2px solid var(--gold);}
+  nav.main-nav a:hover{color:var(--gold-light);}
+  .call-btn{
+    display:flex;align-items:center;gap:8px;
+    border:1px solid var(--gold);color:var(--gold);
+    padding:10px 18px;border-radius:30px;font-size:14px;font-weight:600;
+    white-space:nowrap;transition:.2s;
+  }
+  .call-btn:hover{background:var(--gold);color:var(--black);}
+  .burger{display:none;background:none;border:none;color:var(--white);font-size:26px;cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    min-height:640px;
+    display:grid;grid-template-columns:1fr;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(90deg, rgba(10,10,10,0.97) 15%, rgba(10,10,10,0.55) 55%, rgba(10,10,10,0.15) 100%),
+      linear-gradient(180deg, #2b2116 0%, #191512 45%, #0a0a0a 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    max-width:1440px;margin:0 auto;width:100%;
+    padding:88px 48px 60px;
+  }
+  .eyebrow{
+    color:var(--gold);font-size:13px;letter-spacing:3px;text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:64px;line-height:1.05;font-weight:700;color:var(--white);max-width:620px;
+  }
+  .hero h1 .accent{color:var(--gold);display:block;}
+  .hero p.sub{
+    color:var(--gray);font-size:17px;margin:22px 0 34px;max-width:480px;
+  }
+  .hero-ctas{display:flex;gap:16px;margin-bottom:52px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 28px;border-radius:4px;font-weight:700;font-size:14px;
+    letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border:1px solid transparent;
+    transition:.2s;
+  }
+  .btn-gold{background:var(--gold);color:var(--black);}
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-outline{border-color:rgba(255,255,255,0.4);color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-features{
+    display:flex;gap:38px;flex-wrap:wrap;
+  }
+  .hf-item{display:flex;align-items:center;gap:11px;font-size:13.5px;color:var(--white);line-height:1.35;}
+  .hf-icon{
+    width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;
+  }
+
+  /* car photo placeholder inside hero, layered via extra element */
+  .hero-car{
+    position:absolute;right:0;top:0;bottom:0;width:58%;z-index:1;
+    overflow:hidden;
+  }
+  .hero-car-tag{
+    position:absolute;left:30%;bottom:14%;background:rgba(0,0,0,0.7);border:1px solid var(--gold);
+    padding:6px 12px;border-radius:2px;z-index:3;
+  }
+  .hero-car-tag .pl1{color:var(--gold);font-size:12px;font-weight:800;display:block;letter-spacing:.3px;}
+  .hero-car-tag .pl2{color:var(--white);font-size:10.5px;font-weight:600;display:block;}
+  .car-silhouette{width:100%;height:100%;}
+  .hero-car-img{
+    position:absolute;z-index:2;right:-4%;bottom:0;height:88%;width:auto;max-width:none;
+    object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,0.6));
+  }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .section-head{text-align:center;margin-bottom:48px;}
+  .section-head .eyebrow{justify-content:center;}
+  .section-head .eyebrow::after{content:'';width:26px;height:1px;background:var(--gold);}
+  .section-head h2{font-size:36px;color:var(--white);font-weight:700;}
+
+  /* ---------- FEATURED FLEET ---------- */
+  .featured{padding:90px 0 60px;position:relative;}
+  .featured-top{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;
+  }
+  .arrow-nav{display:flex;gap:10px;}
+  .arrow-btn{
+    width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;background:none;transition:.2s;
+  }
+  .arrow-btn:hover{background:var(--gold);color:var(--black);}
+
+  .fleet-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .car-card{
+    background:var(--black);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;transition:transform .25s, border-color .25s;
+  }
+  .car-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .car-photo{
+    position:relative;height:210px;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 88%, rgba(0,0,0,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 30%, #201a12 0%, #0a0805 70%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .car-photo img{width:100%;height:100%;object-fit:contain;transform:scale(1.28);transform-origin:center 60%;}
+  .car-photo svg{width:78%;opacity:.92;}
+  .badge{
+    position:absolute;top:12px;left:12px;background:var(--gold);color:var(--black);
+    font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 10px;border-radius:3px;
+  }
+  .plate{
+    position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.75);border:1px solid var(--gold);
+    text-align:left;padding:4px 9px;border-radius:2px;line-height:1.3;
+  }
+  .plate .pl1{color:var(--gold);font-size:9.5px;font-weight:800;letter-spacing:.3px;display:block;}
+  .plate .pl2{color:var(--white);font-size:8.5px;font-weight:600;letter-spacing:.3px;display:block;}
+  .car-info{padding:16px 18px 18px;}
+  .car-info h3{font-size:17px;color:var(--white);font-weight:700;margin-bottom:3px;font-family:'Inter',sans-serif;}
+  .car-tag{color:var(--gold);font-size:12px;font-weight:600;margin-bottom:8px;display:block;}
+  .car-price{font-size:19px;font-weight:800;color:var(--white);margin-bottom:12px;}
+  .car-price span{font-size:12px;color:var(--gray);font-weight:400;}
+  .car-specs{
+    display:flex;flex-wrap:wrap;gap:10px 14px;font-size:11.5px;color:var(--gray);
+    margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);
+  }
+  .car-specs span{display:flex;align-items:center;gap:5px;}
+  .car-specs svg{flex-shrink:0;opacity:.85;}
+  .book-btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+    background:var(--gold);color:var(--black);padding:11px;border-radius:4px;
+    font-weight:700;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;
+    border:none;cursor:pointer;transition:.2s;
+  }
+  .book-btn:hover{background:var(--gold-light);}
+
+  /* ---------- FULL FLEET ---------- */
+  .full-fleet{padding:20px 0 100px;}
+  .mini-grid{
+    display:grid;grid-template-columns:repeat(8,1fr);gap:16px;
+  }
+  .mini-card{
+    background:var(--black-2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    cursor:pointer;transition:.2s;
+  }
+  .mini-card:hover{border-color:var(--gold);}
+  .mini-photo{
+    height:100px;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 88%, rgba(0,0,0,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 30%, #201a12 0%, #0a0805 70%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .mini-photo img{width:100%;height:100%;object-fit:contain;transform:scale(1.35);transform-origin:center 62%;}
+  .mini-photo svg{width:80%;opacity:.9;}
+  .mini-info{padding:9px 10px 12px;}
+  .mini-info h4{font-size:11.5px;color:var(--white);font-weight:600;margin-bottom:3px;line-height:1.25;}
+  .mini-info .price{font-size:11px;color:var(--gold);font-weight:700;}
+
+  /* ---------- FOOTER / CONTACT STRIP ---------- */
+  footer{
+    border-top:1px solid var(--border);padding:40px 0;background:var(--black-2);
+  }
+  .footer-row{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .footer-row p{color:var(--gray);font-size:13px;}
+  .footer-links{display:flex;gap:22px;}
+  .footer-links a{color:var(--gray);font-size:13px;transition:.2s;}
+  .footer-links a:hover{color:var(--gold);}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:200;
+    width:56px;height:56px;background:#25D366;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);cursor:pointer;transition:.2s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1100px){
+    .fleet-grid{grid-template-columns:repeat(2,1fr);}
+    .mini-grid{grid-template-columns:repeat(4,1fr);}
+    .hero h1{font-size:48px;}
+    .hero-car{width:70%;opacity:.35;}
+  }
+  @media(max-width:760px){
+    nav.main-nav{display:none;}
+    .burger{display:block;}
+    .call-btn{display:none;}
+    .container,.nav-wrap,.hero-content{padding-left:20px;padding-right:20px;}
+    .hero h1{font-size:36px;}
+    .fleet-grid{grid-template-columns:1fr;}
+    .mini-grid{grid-template-columns:repeat(2,1fr);}
+    .hero-car{display:none;}
+    .hero-features{gap:20px;}
+  }
+</style>
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <span class="logo-icon"><i class="fas fa-car"></i></span>
-                <span class="logo-text">Prime<span class="logo-highlight">Lux</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#fleet">Fleet</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#book">Book Now</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-contact">
-                <i class="fas fa-phone"></i>
-                <span>+254 792 214 367</span>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+<header>
+  <div class="nav-wrap">
+    <div class="logo">
+      <svg class="logo-swoosh" viewBox="0 0 170 20" fill="none"><path d="M2 16 C 20 16, 28 6, 48 5 L 120 5 C 140 5, 150 12, 168 13" stroke="#d79c29" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <div class="logo-text">
+        <div class="l1">Prime<span>Lux</span></div>
+        <div class="l2">Car&nbsp;Rentals</div>
+      </div>
+      <div class="logo-badge">P</div>
+    </div>
+    <nav class="main-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#book">Book Now</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <a class="call-btn" href="tel:+254792214367">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +254 792 214367
+    </a>
+    <button class="burger">☰</button>
+  </div>
+</header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <div class="hero-badge">CAR RENTALS</div>
-            <h1 class="hero-title">
-                WELCOME TO <br />
-                <span class="hero-highlight">PRIMELUX</span> CAR RENTALS
-            </h1>
-            <h2 class="hero-subtitle">LUXURY CAR HIRE <br />IN NAIROBI</h2>
-            <p class="hero-tagline">Drive Excellence. Experience Comfort. Travel in Style.</p>
-            <div class="hero-brand">PRIMELUX</div>
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-whatsapp" id="whatsappHeroBtn">
-                    <i class="fab fa-whatsapp"></i> BOOK VIA WHATSAPP
-                </a>
-                <a href="#fleet" class="btn btn-outline">VIEW OUR FLEET</a>
-            </div>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-car">
+    <svg class="car-silhouette" viewBox="0 0 800 640" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a2a1a"/>
+          <stop offset="45%" stop-color="#221a15"/>
+          <stop offset="100%" stop-color="#050403"/>
+        </linearGradient>
+        <linearGradient id="fadeLeft" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#000" stop-opacity="1"/>
+          <stop offset="35%" stop-color="#000" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="640" fill="url(#sky)"/>
+      <g opacity="0.55" fill="#0d0a08">
+        <rect x="40" y="330" width="46" height="230"/>
+        <rect x="100" y="290" width="34" height="270"/>
+        <rect x="150" y="350" width="60" height="210"/>
+        <rect x="225" y="260" width="40" height="300"/>
+        <rect x="280" y="380" width="50" height="180"/>
+        <rect x="345" y="240" width="46" height="320"/>
+        <rect x="405" y="360" width="70" height="200"/>
+        <rect x="490" y="300" width="38" height="260"/>
+        <rect x="540" y="400" width="90" height="160"/>
+        <rect x="645" y="330" width="42" height="230"/>
+        <rect x="700" y="380" width="60" height="180"/>
+      </g>
+      <g fill="#e8c27a" opacity="0.75">
+        <rect x="108" y="310" width="5" height="7"/><rect x="120" y="330" width="5" height="7"/>
+        <rect x="232" y="290" width="5" height="7"/><rect x="248" y="320" width="5" height="7"/>
+        <rect x="352" y="270" width="5" height="7"/><rect x="368" y="300" width="5" height="7"/>
+        <rect x="500" y="330" width="5" height="7"/><rect x="555" y="420" width="5" height="7"/>
+        <rect x="656" y="360" width="5" height="7"/>
+      </g>
+      <ellipse cx="400" cy="560" rx="400" ry="20" fill="#000" opacity="0.6"/>
+      <rect width="800" height="640" fill="url(#fadeLeft)"/>
+    </svg>
+    <img class="hero-car-img" src="images/prado-txl-black-front.png" alt="Toyota Land Cruiser Prado TXL">
+    <div class="hero-car-tag">
+      <span class="pl1">PRIME LUX</span><span class="pl2">CAR RENTAL</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">Welcome to Prime Lux Car Rentals</div>
+    <h1>Luxury Car Hire<span class="accent">in Nairobi</span></h1>
+    <p class="sub">Drive Excellence. Experience Comfort. Travel in Style.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/254792214367" class="btn btn-gold" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        Book via WhatsApp
+      </a>
+      <a href="#fleet" class="btn btn-outline">View Our Fleet ›</a>
+    </div>
+    <div class="hero-features">
+      <div class="hf-item"><span class="hf-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.4 9.7 8 11 4.6-1.3 8-5.5 8-11V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg></span> Fully Insured<br>Vehicles</div>
+      <div class="hf-item"><span class="hf-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg></span> Self Drive &amp;<br>Chauffeur</div>
+      <div class="hf-item"><span class="hf-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.3 19 20l-1-3-1.5-1-2.6-6-6.6 1.7L4 15l1.2 1.2 4-1L14 18l3.8 1.3z"/><path d="M10.6 10.6 3 8l2-2 5.5 1.1L15 3l2 2-3.6 5.5z"/></svg></span> Airport<br>Transfers</div>
+      <div class="hf-item"><span class="hf-icon" style="font-size:9px;font-weight:800;">24</span> 24/7<br>Support</div>
+    </div>
+  </div>
+</section>
+
+<section class="featured" id="fleet">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Best Selection</div>
+      <h2>Featured Fleet</h2>
+    </div>
+    <div class="featured-top" style="margin-top:-56px;justify-content:flex-end;">
+      <div class="arrow-nav">
+        <button class="arrow-btn" onclick="scrollFleet(-1)">‹</button>
+        <button class="arrow-btn" onclick="scrollFleet(1)">›</button>
+      </div>
+    </div>
+
+    <div class="fleet-grid" id="fleetGrid">
+      <!-- Card 1 -->
+      <div class="car-card">
+        <div class="car-photo">
+          <span class="badge">Featured</span>
+          <span class="plate"><span class="pl1">PRIME LUX</span><span class="pl2">CAR RENTAL</span></span>
+          <img src="images/prado-txl-black-front.png" alt="Toyota Land Cruiser Prado TXL">
         </div>
-    </section>
-
-    <!-- ===== FEATURES / SERVICES BADGES ===== -->
-    <section id="services" class="features">
-        <div class="container features-grid">
-            <div class="feature-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Fully Insured Vehicles</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-user-tie"></i>
-                <span>Self-Drive & Chauffeur</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-plane"></i>
-                <span>Airport Transfers</span>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-headset"></i>
-                <span>24/7 Support</span>
-            </div>
+        <div class="car-info">
+          <h3>Toyota Land Cruiser Prado TXL</h3>
+          <span class="car-tag">Executive SUV</span>
+          <div class="car-price">KSh 10,000 <span>/ Day</span></div>
+          <div class="car-specs">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> 7 Seater</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Automatic</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M3 22V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M3 12h10"/><path d="M15 8h2l3 3v7a1.5 1.5 0 0 1-3 0v-2a1 1 0 0 0-1-1h-1"/><circle cx="18.5" cy="7.5" r="0"/></svg> Diesel</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg> A/C</span>
+          </div>
+          <a class="book-btn" href="https://wa.me/254792214367?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Toyota%20Land%20Cruiser%20Prado%20TXL" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg> Book Now</a>
         </div>
-    </section>
-
-    <!-- ===== FEATURED FLEET ===== -->
-    <section id="fleet" class="fleet">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">OUR BEST SELECTION</span>
-                <h2 class="section-title">FEATURED FLEET</h2>
-            </div>
-
-            <div class="fleet-grid">
-                <!-- Car 1 - Land Cruiser Prado -->
-                <div class="fleet-card featured">
-                    <div class="fleet-tag">FEATURED</div>
-                    <div class="fleet-image">
-                        <img src="images/Land%20Cruiser%20Prado%20Front.png" alt="Toyota Land Cruiser Prado" />
-                    </div>
-                    <div class="fleet-details">
-                        <h3>Toyota Land Cruiser Prado</h3>
-                        <p class="fleet-type">Executive SUV</p>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-users"></i> 7 Seater</span>
-                            <span><i class="fas fa-cog"></i> Automatic</span>
-                            <span><i class="fas fa-tint"></i> Diesel</span>
-                            <span><i class="fas fa-snowflake"></i> A/C</span>
-                        </div>
-                        <div class="fleet-price">
-                            KSh <span>14,000</span>/Day
-                        </div>
-                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Toyota Land Cruiser Prado" data-price="14000">BOOK NOW</a>
-                    </div>
-                </div>
-
-                <!-- Car 2 - Mercedes-Benz E-Class -->
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/White%20Mercedes%20Front.png" alt="Mercedes-Benz E-Class" />
-                    </div>
-                    <div class="fleet-details">
-                        <h3>Mercedes-Benz E-Class</h3>
-                        <p class="fleet-type">Executive Sedan</p>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-users"></i> 5 Seater</span>
-                            <span><i class="fas fa-cog"></i> Automatic</span>
-                            <span><i class="fas fa-tint"></i> Petrol</span>
-                            <span><i class="fas fa-snowflake"></i> A/C</span>
-                        </div>
-                        <div class="fleet-price">
-                            KSh <span>15,000</span>/Day
-                        </div>
-                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Mercedes-Benz E-Class" data-price="15000">BOOK NOW</a>
-                    </div>
-                </div>
-
-                <!-- Car 3 - Subaru Forester -->
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/Subaru%20Front.png" alt="Subaru Forester" />
-                    </div>
-                    <div class="fleet-details">
-                        <h3>Subaru Forester</h3>
-                        <p class="fleet-type">Premium SUV</p>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-users"></i> 5 Seater</span>
-                            <span><i class="fas fa-cog"></i> Automatic</span>
-                            <span><i class="fas fa-tint"></i> Petrol</span>
-                            <span><i class="fas fa-snowflake"></i> A/C</span>
-                        </div>
-                        <div class="fleet-price">
-                            KSh <span>8,000</span>/Day
-                        </div>
-                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Subaru Forester" data-price="8000">BOOK NOW</a>
-                    </div>
-                </div>
-
-                <!-- Car 4 - Black Toyota (Prado VXL) -->
-                <div class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/Black%20Toyota%20front.png" alt="Toyota Land Cruiser Prado VXL" />
-                    </div>
-                    <div class="fleet-details">
-                        <h3>Toyota Land Cruiser Prado VXL</h3>
-                        <p class="fleet-type">Luxury SUV</p>
-                        <div class="fleet-specs">
-                            <span><i class="fas fa-users"></i> 7 Seater</span>
-                            <span><i class="fas fa-cog"></i> Automatic</span>
-                            <span><i class="fas fa-tint"></i> Diesel</span>
-                            <span><i class="fas fa-snowflake"></i> A/C</span>
-                        </div>
-                        <div class="fleet-price">
-                            KSh <span>14,000</span>/Day
-                        </div>
-                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Toyota Land Cruiser Prado VXL" data-price="14000">BOOK NOW</a>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="car-card">
+        <div class="car-photo">
+          <span class="badge">Featured</span>
+          <span class="plate"><span class="pl1">PRIME LUX</span><span class="pl2">CAR RENTAL</span></span>
+          <img src="images/mercedes-eclass-front.png" alt="Mercedes-Benz E-Class">
         </div>
-    </section>
-
-    <!-- ===== FULL FLEET ===== -->
-    <section class="full-fleet">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">OUR FULL FLEET</h2>
-            </div>
-
-            <div class="full-fleet-grid">
-                <div class="fleet-mini-card">
-                    <img src="images/White%20Mercedes%20Front.png" alt="Mercedes E-Class" />
-                    <h4>Mercedes-Benz E-Class</h4>
-                    <p>KSh 15,000/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Land%20Cruiser%20Prado%20Front.png" alt="Land Cruiser Prado" />
-                    <h4>Toyota Land Cruiser Prado</h4>
-                    <p>KSh 14,000/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Subaru%20Front.png" alt="Subaru Forester" />
-                    <h4>Subaru Forester</h4>
-                    <p>KSh 8,000/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Honda%20Fit%20X%20Mazda%20Red.png" alt="Honda Fit" />
-                    <h4>Toyota Vitz</h4>
-                    <p>KSh 3,500/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Mazda%20White%20x2%20Front.png" alt="Toyota Noah" />
-                    <h4>Toyota Noah</h4>
-                    <p>KSh 6,500/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Alphard%20Black%20Front.png" alt="Toyota Hiace" />
-                    <h4>Toyota Hiace</h4>
-                    <p>KSh 7,000/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Black%20Toyota%20front.png" alt="Land Cruiser Black" />
-                    <h4>Toyota Land Cruiser (Black)</h4>
-                    <p>KSh 14,000/Day</p>
-                </div>
-                <div class="fleet-mini-card">
-                    <img src="images/Toyota%20Front.png" alt="Land Cruiser V" />
-                    <h4>Toyota Land Cruiser Prado V</h4>
-                    <p>KSh 14,000/Day</p>
-                </div>
-            </div>
+        <div class="car-info">
+          <h3>Mercedes-Benz E-Class</h3>
+          <span class="car-tag">Executive Sedan</span>
+          <div class="car-price">KSh 10,000 <span>/ Day</span></div>
+          <div class="car-specs">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> 5 Seater</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Automatic</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M3 22V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M3 12h10"/><path d="M15 8h2l3 3v7a1.5 1.5 0 0 1-3 0v-2a1 1 0 0 0-1-1h-1"/><circle cx="18.5" cy="7.5" r="0"/></svg> Petrol</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg> A/C</span>
+          </div>
+          <a class="book-btn" href="https://wa.me/254792214367?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Mercedes-Benz%20E-Class" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg> Book Now</a>
         </div>
-    </section>
-
-    <!-- ===== GALLERY SECTION ===== -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">OUR COLLECTION</span>
-                <h2 class="section-title">GALLERY</h2>
-                <p class="section-subtitle">Explore our premium fleet in stunning detail</p>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-item-large">
-                    <img src="images/Land%20Cruiser%20Prado%20Front.png" alt="Land Cruiser Prado" />
-                    <div class="gallery-overlay">
-                        <h4>Land Cruiser Prado</h4>
-                        <p>Executive SUV</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/White%20Mercedes%20Front.png" alt="Mercedes E-Class" />
-                    <div class="gallery-overlay">
-                        <h4>Mercedes E-Class</h4>
-                        <p>Executive Sedan</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Subaru%20Front.png" alt="Subaru Forester" />
-                    <div class="gallery-overlay">
-                        <h4>Subaru Forester</h4>
-                        <p>Premium SUV</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Black%20Toyota%20front.png" alt="Black Toyota" />
-                    <div class="gallery-overlay">
-                        <h4>Black Toyota</h4>
-                        <p>Luxury SUV</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Mazda%20Black%20Front.png" alt="Mazda Black" />
-                    <div class="gallery-overlay">
-                        <h4>Mazda</h4>
-                        <p>Executive Sedan</p>
-                    </div>
-                </div>
-                <div class="gallery-item gallery-item-large">
-                    <img src="images/Alphard%20Black%20Front.png" alt="Alphard" />
-                    <div class="gallery-overlay">
-                        <h4>Toyota Alphard</h4>
-                        <p>Luxury Minivan</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="car-card">
+        <div class="car-photo">
+          <span class="plate"><span class="pl1">PRIME LUX</span><span class="pl2">CAR RENTAL</span></span>
+          <img src="images/subaru-forester-front.png" alt="Subaru Forester">
         </div>
-    </section>
-
-    <!-- ===== BOOKING FORM SECTION ===== -->
-    <section id="book" class="booking">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">MAKE A RESERVATION</span>
-                <h2 class="section-title">BOOK NOW</h2>
-                <p class="section-subtitle">Fill in the details and we'll get back to you within 30 minutes</p>
-            </div>
-
-            <div class="booking-wrapper">
-                <div class="booking-form-container">
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
-                                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
-                                <input type="email" id="email" name="email" placeholder="john@example.com" required />
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="carSelect"><i class="fas fa-car"></i> Select Car *</label>
-                                <select id="carSelect" name="carSelect" required>
-                                    <option value="">-- Select a vehicle --</option>
-                                    <option value="Toyota Land Cruiser Prado">Toyota Land Cruiser Prado - KSh 14,000/day</option>
-                                    <option value="Mercedes-Benz E-Class">Mercedes-Benz E-Class - KSh 15,000/day</option>
-                                    <option value="Subaru Forester">Subaru Forester - KSh 8,000/day</option>
-                                    <option value="Toyota Land Cruiser Prado VXL">Toyota Land Cruiser Prado VXL - KSh 14,000/day</option>
-                                    <option value="Toyota Vitz">Toyota Vitz - KSh 3,500/day</option>
-                                    <option value="Toyota Noah">Toyota Noah - KSh 6,500/day</option>
-                                    <option value="Toyota Hiace">Toyota Hiace - KSh 7,000/day</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="pickupDate"><i class="fas fa-calendar-check"></i> Pickup Date *</label>
-                                <input type="date" id="pickupDate" name="pickupDate" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="returnDate"><i class="fas fa-calendar-alt"></i> Return Date *</label>
-                                <input type="date" id="returnDate" name="returnDate" required />
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="pickupLocation"><i class="fas fa-map-marker-alt"></i> Pickup Location *</label>
-                                <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Nairobi CBD, JKIA, Westlands..." required />
-                            </div>
-                            <div class="form-group">
-                                <label for="driverType"><i class="fas fa-user-tie"></i> Driver Option</label>
-                                <select id="driverType" name="driverType">
-                                    <option value="self-drive">Self-Drive</option>
-                                    <option value="chauffeur">With Chauffeur (+KSh 2,000/day)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="specialRequests"><i class="fas fa-comment"></i> Special Requests</label>
-                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements? (baby seat, extra luggage, etc.)"></textarea>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-submit">
-                                <i class="fas fa-paper-plane"></i> SEND BOOKING REQUEST
-                            </button>
-                            <button type="button" class="btn btn-whatsapp-form" id="whatsappFormBtn">
-                                <i class="fab fa-whatsapp"></i> BOOK VIA WHATSAPP
-                            </button>
-                        </div>
-
-                        <div id="formStatus" class="form-status"></div>
-                    </form>
-                </div>
-
-                <div class="booking-info">
-                    <div class="info-card">
-                        <h4><i class="fas fa-info-circle"></i> Why Book With Us?</h4>
-                        <ul>
-                            <li><i class="fas fa-check-circle"></i> Instant confirmation</li>
-                            <li><i class="fas fa-check-circle"></i> No hidden charges</li>
-                            <li><i class="fas fa-check-circle"></i> Free cancellation (24hrs)</li>
-                            <li><i class="fas fa-check-circle"></i> Fully insured vehicles</li>
-                            <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <h4><i class="fas fa-clock"></i> Working Hours</h4>
-                        <p><strong>Mon - Fri:</strong> 7:00 AM - 10:00 PM</p>
-                        <p><strong>Sat - Sun:</strong> 8:00 AM - 8:00 PM</p>
-                        <p><strong>24/7 Emergency:</strong> +254 792 214 367</p>
-                    </div>
-                    <div class="info-card highlight">
-                        <h4><i class="fas fa-whatsapp"></i> Quick Booking</h4>
-                        <p>Chat with us on WhatsApp for instant booking</p>
-                        <a href="#" id="whatsappInfoBtn" class="btn btn-whatsapp-small">
-                            <i class="fab fa-whatsapp"></i> Chat Now
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="car-info">
+          <h3>Subaru Forester</h3>
+          <span class="car-tag">Premium SUV</span>
+          <div class="car-price">KSh 8,000 <span>/ Day</span></div>
+          <div class="car-specs">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> 5 Seater</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Automatic</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M3 22V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M3 12h10"/><path d="M15 8h2l3 3v7a1.5 1.5 0 0 1-3 0v-2a1 1 0 0 0-1-1h-1"/><circle cx="18.5" cy="7.5" r="0"/></svg> Petrol</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg> A/C</span>
+          </div>
+          <a class="book-btn" href="https://wa.me/254792214367?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Subaru%20Forester" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg> Book Now</a>
         </div>
-    </section>
-
-    <!-- ===== ABOUT US ===== -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <span class="section-badge">ABOUT US</span>
-                    <h2 class="section-title">Driving Excellence in Nairobi</h2>
-                    <p>PrimeLux Car Rentals is Nairobi's premier luxury car hire service. We offer a curated fleet of premium vehicles for both self-drive and chauffeur-driven experiences.</p>
-                    <p>Whether you're a business executive, tourist, or celebrating a special occasion, we provide the perfect vehicle to match your style and needs.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Premium Cars</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Happy Clients</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4.9★</span>
-                            <span class="stat-label">Client Rating</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/Land%20Cruiser%20Prado%20Front.png" alt="PrimeLux Fleet" />
-                </div>
-            </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="car-card">
+        <div class="car-photo">
+          <span class="plate"><span class="pl1">PRIME LUX</span><span class="pl2">CAR RENTAL</span></span>
+          <img src="images/prado-vxl-silver-rear.png" alt="Toyota Land Cruiser Prado VXL">
         </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-icon"><i class="fas fa-car"></i></span>
-                        <span class="logo-text">Prime<span class="logo-highlight">Lux</span></span>
-                    </div>
-                    <p>Luxury car hire in Nairobi. Drive excellence, experience comfort, travel in style.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#fleet">Fleet</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#book">Book Now</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-phone"></i> +254 792 214 367</p>
-                    <p><i class="fas fa-envelope"></i> info@primelux.co.ke</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +254 792 214 367</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 PrimeLux Car Rentals. All rights reserved.</p>
-            </div>
+        <div class="car-info">
+          <h3>Toyota Land Cruiser Prado VXL</h3>
+          <span class="car-tag">Luxury SUV</span>
+          <div class="car-price">KSh 10,000 <span>/ Day</span></div>
+          <div class="car-specs">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> 7 Seater</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Automatic</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M3 22V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14"/><path d="M3 12h10"/><path d="M15 8h2l3 3v7a1.5 1.5 0 0 1-3 0v-2a1 1 0 0 0-1-1h-1"/><circle cx="18.5" cy="7.5" r="0"/></svg> Diesel</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d79c29" stroke-width="2"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg> A/C</span>
+          </div>
+          <a class="book-btn" href="https://wa.me/254792214367?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Toyota%20Land%20Cruiser%20Prado%20VXL" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg> Book Now</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<section class="full-fleet">
+  <div class="container">
+    <div class="section-head"><h2>Our Full Fleet</h2></div>
+    <div class="mini-grid">
+      <div class="mini-card"><div class="mini-photo"><img src="images/mercedes-eclass-front.png" alt="Mercedes-Benz E-Class"></div><div class="mini-info"><h4>Mercedes-Benz E-Class</h4><span class="price">KSh 10,000 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/prado-txl-black-front.png" alt="Toyota Land Cruiser Prado TXL"></div><div class="mini-info"><h4>Toyota Land Cruiser Prado TXL</h4><span class="price">KSh 10,000 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/subaru-forester-rear.png" alt="Subaru Forester"></div><div class="mini-info"><h4>Subaru Forester</h4><span class="price">KSh 8,000 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/hatchback-white-front.png" alt="Toyota Vitz"></div><div class="mini-info"><h4>Toyota Vitz</h4><span class="price">KSh 3,500 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/van-black-front.png" alt="Toyota Noah"></div><div class="mini-info"><h4>Toyota Noah</h4><span class="price">KSh 6,500 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/toyota-generic-front.png" alt="Toyota Hiace"></div><div class="mini-info"><h4>Toyota Hiace</h4><span class="price">KSh 7,000 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/prado-black-rear.png" alt="Toyota Land Cruiser Prado (Black)"></div><div class="mini-info"><h4>Toyota Land Cruiser Prado (Black)</h4><span class="price">KSh 10,000 / Day</span></div></div>
+
+      <div class="mini-card"><div class="mini-photo"><img src="images/prado-vxl-silver-front.png" alt="Toyota Land Cruiser Prado VXL"></div><div class="mini-info"><h4>Toyota Land Cruiser Prado VXL</h4><span class="price">KSh 10,000 / Day</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container footer-row">
+    <p>© 2026 Prime Lux Car Rentals — Nairobi, Kenya</p>
+    <div class="footer-links">
+      <a href="tel:+254792214367">+254 792 214367</a>
+      <a href="https://wa.me/254792214367" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#about">About Us</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/254792214367" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+</a>
+
+<script>
+  function scrollFleet(dir){
+    const grid = document.getElementById('fleetGrid');
+    grid.scrollBy({left: dir * 320, behavior: 'smooth'});
+  }
+  document.querySelectorAll('.main-nav a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      document.querySelectorAll('.main-nav a').forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+    });
+  });
+</script>
+
 </body>
 </html>
