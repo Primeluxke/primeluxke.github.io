@@ -6,169 +6,452 @@
 
 <title>PrimeLux Car Rentals</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.9);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+color:#d4af37;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.whatsapp-btn{
+background:#d4af37;
+padding:12px 20px;
+border-radius:30px;
+color:black;
+text-decoration:none;
+font-weight:700;
+}
+
+.hero{
+padding:140px 7% 60px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+min-height:90vh;
+}
+
+.hero-left{
+max-width:550px;
+}
+
+.hero-left h1{
+font-size:58px;
+line-height:1;
+margin-bottom:20px;
+}
+
+.hero-left span{
+color:#d4af37;
+}
+
+.hero-left p{
+color:#bbb;
+margin-bottom:30px;
+}
+
+.hero-left a{
+display:inline-block;
+background:#d4af37;
+color:black;
+padding:15px 30px;
+border-radius:40px;
+text-decoration:none;
+font-weight:700;
+}
+
+.hero-right img{
+width:100%;
+max-width:550px;
+height:auto;
+object-fit:contain;
+}
+
+.section-title{
+text-align:center;
+padding:40px 0;
+}
+
+.section-title h2{
+font-size:36px;
+color:#d4af37;
+}
+
+.fleet-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px 5%;
+}
+
+.car-card{
+background:#111;
+border-radius:15px;
+padding:15px;
+text-align:center;
+border:1px solid rgba(212,175,55,.2);
+}
+
+.car-card img{
+width:100%;
+height:150px;
+object-fit:contain;
+}
+
+.car-card h3{
+font-size:18px;
+margin:10px 0;
+}
+
+.car-card p{
+color:#d4af37;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.car-card a{
+display:inline-block;
+background:#d4af37;
+padding:10px 20px;
+border-radius:30px;
+color:black;
+text-decoration:none;
+font-weight:700;
+}
+
+.booking{
+padding:80px 5%;
+}
+
+.booking form{
+max-width:700px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+background:#111;
+padding:30px;
+border-radius:15px;
+}
+
+.booking input,
+.booking select,
+.booking textarea{
+padding:15px;
+background:#222;
+border:none;
+border-radius:8px;
+color:white;
+}
+
+.booking button{
+padding:15px;
+background:#d4af37;
+border:none;
+border-radius:8px;
+font-weight:700;
+cursor:pointer;
+}
+
+.full-fleet{
+padding:60px 5%;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.gallery-grid img{
+width:100%;
+height:130px;
+object-fit:contain;
+background:#111;
+padding:10px;
+border-radius:10px;
+}
+
+.contact{
+padding:80px 5%;
+text-align:center;
+}
+
+.contact h2{
+margin-bottom:20px;
+color:#d4af37;
+}
+
+.contact p{
+margin:10px 0;
+}
+
+.float-whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:30px;
+text-decoration:none;
+z-index:999;
+}
+
+@media(max-width:900px){
+
+.hero{
+text-align:center;
+justify-content:center;
+}
+
+.hero-left h1{
+font-size:42px;
+}
+
+nav{
+display:none;
+}
+
+.hero-right{
+margin-top:30px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
 
 <div class="logo">
-<h1>PRIME<span>LUX</span></h1>
+PRIMELUX
 </div>
 
 <nav>
-<a href="#home">Home</a>
 <a href="#fleet">Fleet</a>
-<a href="#gallery">Gallery</a>
+<a href="#booking">Book</a>
+<a href="#fullfleet">Full Fleet</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<a href="https://wa.me/254792214367" class="whatsapp-btn">
-<i class="fab fa-whatsapp"></i>
+<a href="#booking" class="whatsapp-btn">
 Book Now
 </a>
 
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
 
-<div class="hero-content">
-
-<h4>WELCOME TO PRIME LUX CAR RENTALS</h4>
+<div class="hero-left">
 
 <h1>
-LUXURY CAR HIRE<br>
-<span>IN NAIROBI</span>
+Luxury Car Hire <span>In Nairobi</span>
 </h1>
 
 <p>
-Executive SUVs, Sedans, Vans & Self Drive Rentals.
+Premium Self Drive, Chauffeur Services, Airport Transfers and Executive Rentals.
 </p>
 
-<div class="hero-buttons">
-
-<a href="https://wa.me/254792214367" class="gold-btn">
-Book Via WhatsApp
-</a>
-
-<a href="#fleet" class="outline-btn">
-View Fleet
+<a href="#booking">
+Book Your Ride
 </a>
 
 </div>
 
-</div>
-
-<div class="hero-image">
-<img src="images/Land Cruiser Prado Front.png" alt="">
+<div class="hero-right">
+<img src="images/Land Cruiser Prado Front.png">
 </div>
 
 </section>
 
-<section class="section-title">
-<h2>FEATURED FLEET</h2>
-</section>
+<div class="section-title" id="fleet">
+<h2>Featured Fleet</h2>
+</div>
 
-<section class="fleet-grid" id="fleet">
+<section class="fleet-grid">
 
 <div class="car-card">
 <img src="images/Land Cruiser Prado Front.png">
-<h3>Toyota Land Cruiser Prado</h3>
+<h3>Land Cruiser Prado</h3>
 <p>KSh 10,000 / Day</p>
-<a href="https://wa.me/254792214367">BOOK NOW</a>
+<a href="#booking">Book Now</a>
 </div>
 
 <div class="car-card">
 <img src="images/White Mercedes Front.png">
 <h3>Mercedes E-Class</h3>
 <p>KSh 10,000 / Day</p>
-<a href="https://wa.me/254792214367">BOOK NOW</a>
+<a href="#booking">Book Now</a>
 </div>
 
 <div class="car-card">
 <img src="images/Subaru Front.png">
 <h3>Subaru Forester</h3>
 <p>KSh 8,000 / Day</p>
-<a href="https://wa.me/254792214367">BOOK NOW</a>
+<a href="#booking">Book Now</a>
 </div>
 
 <div class="car-card">
 <img src="images/Black Toyota front.png">
 <h3>Toyota Prado Black</h3>
 <p>KSh 10,000 / Day</p>
-<a href="https://wa.me/254792214367">BOOK NOW</a>
+<a href="#booking">Book Now</a>
 </div>
 
 </section>
 
-<section class="section-title">
-<h2>FULL FLEET</h2>
+<div class="section-title" id="booking">
+<h2>Book A Vehicle</h2>
+</div>
+
+<section class="booking">
+
+<form id="bookingForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<select id="vehicle">
+
+<option>Land Cruiser Prado</option>
+<option>Mercedes E-Class</option>
+<option>Subaru Forester</option>
+<option>Toyota Prado Black</option>
+
+</select>
+
+<input type="date" id="pickup" required>
+
+<textarea id="notes" rows="5" placeholder="Additional Notes"></textarea>
+
+<button type="submit">
+Send Booking Request
+</button>
+
+</form>
+
 </section>
 
-<section class="gallery-grid" id="gallery">
+<div class="section-title" id="fullfleet">
+<h2>Full Fleet</h2>
+</div>
 
-<img src="images/Land Cruiser Prado Front.png">
-<img src="images/LandCruiser Prado Back.png">
+<section class="full-fleet">
 
-<img src="images/Black Toyota front.png">
-<img src="images/Black Toyota Back.png">
+<div class="gallery-grid">
 
 <img src="images/Alphard Black Front.png">
-
-<img src="images/Subaru Front.png">
+<img src="images/Black Toyota Back.png">
+<img src="images/Honda Fit X Mazda Red.png">
+<img src="images/LandCruiser Prado Back.png">
+<img src="images/Mazda Black Front.png">
+<img src="images/Mazda White Back.png">
+<img src="images/Mazda White Front.png">
+<img src="images/Mazda White x2 Back.png">
+<img src="images/Mazda White x2 Front.png">
 <img src="images/Subaru Back.png">
-
 <img src="images/Toyota Front.png">
 
-<img src="images/Mazda Black Front.png">
-
-<img src="images/Mazda White Front.png">
-<img src="images/Mazda White Back.png">
-
-<img src="images/Mazda White x2 Front.png">
-<img src="images/Mazda White x2 Back.png">
-
-<img src="images/Honda Fit X Mazda Red.png">
-
-<img src="images/White Mercedes Front.png">
+</div>
 
 </section>
 
 <section class="contact" id="contact">
 
-<h2>CONTACT PRIME LUX</h2>
+<h2>Contact PrimeLux</h2>
 
-<p>
-<i class="fas fa-phone"></i>
-+254 792 214367
-</p>
-
-<p>
-<i class="fas fa-phone"></i>
-+254 748 658520
-</p>
-
-<p>
-<i class="fas fa-map-marker-alt"></i>
-Nairobi, Kenya
-</p>
-
-<a href="https://wa.me/254792214367" class="gold-btn">
-Book Now
-</a>
+<p>📞 +254 792 214367</p>
+<p>📞 +254 748 658520</p>
+<p>📍 Nairobi, Kenya</p>
 
 </section>
 
-<a href="https://wa.me/254792214367" class="floating-whatsapp">
+<a href="https://wa.me/254792214367" class="float-whatsapp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<script src="script.js"></script>
+<script>
+
+document.getElementById('bookingForm').addEventListener('submit',function(e){
+
+e.preventDefault();
+
+const name=document.getElementById('name').value;
+const phone=document.getElementById('phone').value;
+const vehicle=document.getElementById('vehicle').value;
+const pickup=document.getElementById('pickup').value;
+const notes=document.getElementById('notes').value;
+
+const msg=
+`PRIME LUX BOOKING
+
+Name: ${name}
+Phone: ${phone}
+Vehicle: ${vehicle}
+Pickup Date: ${pickup}
+
+Notes:
+${notes}`;
+
+window.open(
+`https://wa.me/254792214367?text=${encodeURIComponent(msg)}`,
+'_blank'
+);
+
+});
+
+</script>
 
 </body>
 </html>
