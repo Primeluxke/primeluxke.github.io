@@ -1,179 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PrimeLux Car Rentals</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrimeLux - Luxury Car Hire Nairobi</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
 
-<header>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-car"></i></span>
+                <span class="logo-text">Prime<span class="logo-highlight">Lux</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <i class="fas fa-phone"></i>
+                <span>+254 792 214 367</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<div class="logo">
-<h1>PrimeLux</h1>
-<span>CAR RENTALS</span>
-</div>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">CAR RENTALS</div>
+            <h1 class="hero-title">
+                WELCOME TO <br />
+                <span class="hero-highlight">PRIMELUX</span> CAR RENTALS
+            </h1>
+            <h2 class="hero-subtitle">LUXURY CAR HIRE <br />IN NAIROBI</h2>
+            <p class="hero-tagline">Drive Excellence. Experience Comfort. Travel in Style.</p>
+            <div class="hero-brand">PRIMELUX</div>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-whatsapp" id="whatsappHeroBtn">
+                    <i class="fab fa-whatsapp"></i> BOOK VIA WHATSAPP
+                </a>
+                <a href="#fleet" class="btn btn-outline">VIEW OUR FLEET</a>
+            </div>
+        </div>
+    </section>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#fleet">Fleet</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+    <!-- ===== FEATURES / SERVICES BADGES ===== -->
+    <section id="services" class="features">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Fully Insured Vehicles</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-user-tie"></i>
+                <span>Self-Drive & Chauffeur</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-plane"></i>
+                <span>Airport Transfers</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <span>24/7 Support</span>
+            </div>
+        </div>
+    </section>
 
-<a href="https://wa.me/254792214367" class="phone-btn">
-<i class="fab fa-whatsapp"></i>
-+254 792 214367
-</a>
+    <!-- ===== FEATURED FLEET ===== -->
+    <section id="fleet" class="fleet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">OUR BEST SELECTION</span>
+                <h2 class="section-title">FEATURED FLEET</h2>
+            </div>
 
-</header>
+            <div class="fleet-grid">
+                <!-- Car 1 - Prado TXL (Updated Price) -->
+                <div class="fleet-card featured">
+                    <div class="fleet-tag">FEATURED</div>
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Toyota Land Cruiser Prado TXL" />
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Toyota Land Cruiser Prado TXL</h3>
+                        <p class="fleet-type">Executive SUV</p>
+                        <div class="fleet-specs">
+                            <span><i class="fas fa-users"></i> 7 Seater</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                            <span><i class="fas fa-tint"></i> Diesel</span>
+                            <span><i class="fas fa-snowflake"></i> A/C</span>
+                        </div>
+                        <div class="fleet-price">
+                            KSh <span>14,000</span>/Day
+                        </div>
+                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Toyota Land Cruiser Prado TXL" data-price="14000">BOOK NOW</a>
+                    </div>
+                </div>
 
-<section class="hero" id="home">
+                <!-- Car 2 - Mercedes E-Class (Updated Price) -->
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1616424070810-2d4c1b2b52a2?w=600&h=400&fit=crop" alt="Mercedes-Benz E-Class" />
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Mercedes-Benz E-Class</h3>
+                        <p class="fleet-type">Executive Sedan</p>
+                        <div class="fleet-specs">
+                            <span><i class="fas fa-users"></i> 5 Seater</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                            <span><i class="fas fa-tint"></i> Petrol</span>
+                            <span><i class="fas fa-snowflake"></i> A/C</span>
+                        </div>
+                        <div class="fleet-price">
+                            KSh <span>15,000</span>/Day
+                        </div>
+                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Mercedes-Benz E-Class" data-price="15000">BOOK NOW</a>
+                    </div>
+                </div>
 
-<div class="hero-text">
+                <!-- Car 3 -->
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1570773279953-96241a90e3ae?w=600&h=400&fit=crop" alt="Subaru Forester" />
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Subaru Forester</h3>
+                        <p class="fleet-type">Premium SUV</p>
+                        <div class="fleet-specs">
+                            <span><i class="fas fa-users"></i> 5 Seater</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                            <span><i class="fas fa-tint"></i> Petrol</span>
+                            <span><i class="fas fa-snowflake"></i> A/C</span>
+                        </div>
+                        <div class="fleet-price">
+                            KSh <span>8,000</span>/Day
+                        </div>
+                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Subaru Forester" data-price="8000">BOOK NOW</a>
+                    </div>
+                </div>
 
-<p class="welcome">
-WELCOME TO PRIME LUX CAR RENTALS
-</p>
+                <!-- Car 4 -->
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop" alt="Toyota Land Cruiser Prado VXL" />
+                    </div>
+                    <div class="fleet-details">
+                        <h3>Toyota Land Cruiser Prado VXL</h3>
+                        <p class="fleet-type">Luxury SUV</p>
+                        <div class="fleet-specs">
+                            <span><i class="fas fa-users"></i> 7 Seater</span>
+                            <span><i class="fas fa-cog"></i> Automatic</span>
+                            <span><i class="fas fa-tint"></i> Diesel</span>
+                            <span><i class="fas fa-snowflake"></i> A/C</span>
+                        </div>
+                        <div class="fleet-price">
+                            KSh <span>14,000</span>/Day
+                        </div>
+                        <a href="#book" class="btn btn-primary book-now-btn" data-car="Toyota Land Cruiser Prado VXL" data-price="14000">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1>
-Luxury Car Hire
-<span>In Nairobi</span>
-</h1>
+    <!-- ===== FULL FLEET ===== -->
+    <section class="full-fleet">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">OUR FULL FLEET</h2>
+            </div>
 
-<p class="subtitle">
-Drive Excellence. Experience Comfort. Travel In Style.
-</p>
+            <div class="full-fleet-grid">
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1616424070810-2d4c1b2b52a2?w=300&h=200&fit=crop" alt="Mercedes E-Class" />
+                    <h4>Mercedes-Benz E-Class</h4>
+                    <p>KSh 15,000/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300&h=200&fit=crop" alt="Land Cruiser Prado" />
+                    <h4>Toyota Land Cruiser Prado TXL</h4>
+                    <p>KSh 14,000/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1570773279953-96241a90e3ae?w=300&h=200&fit=crop" alt="Subaru Forester" />
+                    <h4>Subaru Forester</h4>
+                    <p>KSh 8,000/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=300&h=200&fit=crop" alt="Toyota Vitz" />
+                    <h4>Toyota Vitz</h4>
+                    <p>KSh 3,500/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300&h=200&fit=crop" alt="Toyota Noah" />
+                    <h4>Toyota Noah</h4>
+                    <p>KSh 6,500/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1549317661-b5b32a6fd2f4?w=300&h=200&fit=crop" alt="Toyota Hiace" />
+                    <h4>Toyota Hiace</h4>
+                    <p>KSh 7,000/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&h=200&fit=crop" alt="Land Cruiser Black" />
+                    <h4>Toyota Land Cruiser Prado (Black)</h4>
+                    <p>KSh 14,000/Day</p>
+                </div>
+                <div class="fleet-mini-card">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300&h=200&fit=crop" alt="Land Cruiser V" />
+                    <h4>Toyota Land Cruiser Prado V</h4>
+                    <p>KSh 14,000/Day</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-buttons">
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">OUR COLLECTION</span>
+                <h2 class="section-title">GALLERY</h2>
+                <p class="section-subtitle">Explore our premium fleet in stunning detail</p>
+            </div>
 
-<a href="#booking" class="gold-btn">
-Book Via WhatsApp
-</a>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-large">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop" alt="Luxury Car 1" />
+                    <div class="gallery-overlay">
+                        <h4>Land Cruiser Prado</h4>
+                        <p>Executive SUV</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1616424070810-2d4c1b2b52a2?w=600&h=400&fit=crop" alt="Luxury Car 2" />
+                    <div class="gallery-overlay">
+                        <h4>Mercedes E-Class</h4>
+                        <p>Executive Sedan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop" alt="Luxury Car 3" />
+                    <div class="gallery-overlay">
+                        <h4>Land Cruiser TXL</h4>
+                        <p>Premium SUV</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570773279953-96241a90e3ae?w=600&h=400&fit=crop" alt="Luxury Car 4" />
+                    <div class="gallery-overlay">
+                        <h4>Subaru Forester</h4>
+                        <p>Adventure SUV</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop" alt="Luxury Car 5" />
+                    <div class="gallery-overlay">
+                        <h4>Toyota Vitz</h4>
+                        <p>Compact Car</p>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-large">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=600&fit=crop" alt="Luxury Car 6" />
+                    <div class="gallery-overlay">
+                        <h4>Toyota Noah</h4>
+                        <p>Family Minivan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a href="#fleet" class="dark-btn">
-View Fleet
-</a>
+    <!-- ===== BOOKING FORM SECTION ===== -->
+    <section id="book" class="booking">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">MAKE A RESERVATION</span>
+                <h2 class="section-title">BOOK NOW</h2>
+                <p class="section-subtitle">Fill in the details and we'll get back to you within 30 minutes</p>
+            </div>
 
-</div>
+            <div class="booking-wrapper">
+                <div class="booking-form-container">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required />
+                            </div>
+                        </div>
 
-</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="carSelect"><i class="fas fa-car"></i> Select Car *</label>
+                                <select id="carSelect" name="carSelect" required>
+                                    <option value="">-- Select a vehicle --</option>
+                                    <option value="Toyota Land Cruiser Prado TXL">Toyota Land Cruiser Prado TXL - KSh 14,000/day</option>
+                                    <option value="Mercedes-Benz E-Class">Mercedes-Benz E-Class - KSh 15,000/day</option>
+                                    <option value="Subaru Forester">Subaru Forester - KSh 8,000/day</option>
+                                    <option value="Toyota Land Cruiser Prado VXL">Toyota Land Cruiser Prado VXL - KSh 14,000/day</option>
+                                    <option value="Toyota Vitz">Toyota Vitz - KSh 3,500/day</option>
+                                    <option value="Toyota Noah">Toyota Noah - KSh 6,500/day</option>
+                                    <option value="Toyota Hiace">Toyota Hiace - KSh 7,000/day</option>
+                                </select>
+                            </div>
+                        </div>
 
-<div class="hero-image">
-<img src="images/Land Cruiser Prado Front.png">
-</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupDate"><i class="fas fa-calendar-check"></i> Pickup Date *</label>
+                                <input type="date" id="pickupDate" name="pickupDate" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="returnDate"><i class="fas fa-calendar-alt"></i> Return Date *</label>
+                                <input type="date" id="returnDate" name="returnDate" required />
+                            </div>
+                        </div>
 
-</section>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupLocation"><i class="fas fa-map-marker-alt"></i> Pickup Location *</label>
+                                <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Nairobi CBD, JKIA, Westlands..." required />
+                            </div>
+                            <div class="form-group">
+                                <label for="driverType"><i class="fas fa-user-tie"></i> Driver Option</label>
+                                <select id="driverType" name="driverType">
+                                    <option value="self-drive">Self-Drive</option>
+                                    <option value="chauffeur">With Chauffeur (+KSh 2,000/day)</option>
+                                </select>
+                            </div>
+                        </div>
 
-<section id="fleet">
+                        <div class="form-group full-width">
+                            <label for="specialRequests"><i class="fas fa-comment"></i> Special Requests</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements? (baby seat, extra luggage, etc.)"></textarea>
+                        </div>
 
-<div class="section-title">
-<h2>Featured Fleet</h2>
-</div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-submit">
+                                <i class="fas fa-paper-plane"></i> SEND BOOKING REQUEST
+                            </button>
+                            <button type="button" class="btn btn-whatsapp-form" id="whatsappFormBtn">
+                                <i class="fab fa-whatsapp"></i> BOOK VIA WHATSAPP
+                            </button>
+                        </div>
 
-<div class="featured-grid">
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                </div>
 
-<div class="car-card">
-<img src="images/Land Cruiser Prado Front.png">
-<h3>Toyota Prado TXL</h3>
-<p>KSh 10,000 / Day</p>
-<button onclick="openBooking('Toyota Prado TXL')">Book Now</button>
-</div>
+                <div class="booking-info">
+                    <div class="info-card">
+                        <h4><i class="fas fa-info-circle"></i> Why Book With Us?</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Instant confirmation</li>
+                            <li><i class="fas fa-check-circle"></i> No hidden charges</li>
+                            <li><i class="fas fa-check-circle"></i> Free cancellation (24hrs)</li>
+                            <li><i class="fas fa-check-circle"></i> Fully insured vehicles</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-clock"></i> Working Hours</h4>
+                        <p><strong>Mon - Fri:</strong> 7:00 AM - 10:00 PM</p>
+                        <p><strong>Sat - Sun:</strong> 8:00 AM - 8:00 PM</p>
+                        <p><strong>24/7 Emergency:</strong> +254 792 214 367</p>
+                    </div>
+                    <div class="info-card highlight">
+                        <h4><i class="fas fa-whatsapp"></i> Quick Booking</h4>
+                        <p>Chat with us on WhatsApp for instant booking</p>
+                        <a href="#" id="whatsappInfoBtn" class="btn btn-whatsapp-small">
+                            <i class="fab fa-whatsapp"></i> Chat Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="car-card">
-<img src="images/White Mercedes Front.png">
-<h3>Mercedes E-Class</h3>
-<p>KSh 10,000 / Day</p>
-<button onclick="openBooking('Mercedes E-Class')">Book Now</button>
-</div>
+    <!-- ===== ABOUT US ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-badge">ABOUT US</span>
+                    <h2 class="section-title">Driving Excellence in Nairobi</h2>
+                    <p>PrimeLux Car Rentals is Nairobi's premier luxury car hire service. We offer a curated fleet of premium vehicles for both self-drive and chauffeur-driven experiences.</p>
+                    <p>Whether you're a business executive, tourist, or celebrating a special occasion, we provide the perfect vehicle to match your style and needs.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Premium Cars</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.9★</span>
+                            <span class="stat-label">Client Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop" alt="PrimeLux Fleet" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="car-card">
-<img src="images/Subaru Front.png">
-<h3>Subaru Forester</h3>
-<p>KSh 8,000 / Day</p>
-<button onclick="openBooking('Subaru Forester')">Book Now</button>
-</div>
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon"><i class="fas fa-car"></i></span>
+                        <span class="logo-text">Prime<span class="logo-highlight">Lux</span></span>
+                    </div>
+                    <p>Luxury car hire in Nairobi. Drive excellence, experience comfort, travel in style.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#fleet">Fleet</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#book">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +254 792 214 367</p>
+                    <p><i class="fas fa-envelope"></i> info@primelux.co.ke</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +254 792 214 367</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PrimeLux Car Rentals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<div class="car-card">
-<img src="images/Toyota Front.png">
-<h3>Toyota Sedan</h3>
-<p>KSh 6,000 / Day</p>
-<button onclick="openBooking('Toyota Sedan')">Book Now</button>
-</div>
-
-</div>
-
-<div class="section-title">
-<h2>Full Fleet</h2>
-</div>
-
-<div class="fleet-grid">
-
-<img src="images/Land Cruiser Prado Front.png">
-<img src="images/LandCruiser Prado Back.png">
-<img src="images/Black Toyota front.png">
-<img src="images/Black Toyota Back.png">
-<img src="images/Subaru Front.png">
-<img src="images/Subaru Back.png">
-<img src="images/Mazda White Front.png">
-<img src="images/Mazda White Back.png">
-<img src="images/Mazda White x2 Front.png">
-<img src="images/Mazda White x2 Back.png">
-<img src="images/Mazda Black Front.png">
-<img src="images/Alphard Black Front.png">
-
-</div>
-
-</section>
-
-<section class="booking" id="booking">
-
-<h2>Book Your Vehicle</h2>
-
-<form id="bookingForm">
-
-<input type="text" id="name" placeholder="Full Name" required>
-
-<input type="tel" id="phone" placeholder="Phone Number" required>
-
-<input type="date" id="pickup" required>
-
-<input type="date" id="returnDate" required>
-
-<input type="hidden" id="vehicle">
-
-<button type="submit">
-Send Booking Request
-</button>
-
-</form>
-
-</section>
-
-<footer id="contact">
-
-<h3>PrimeLux Car Rentals</h3>
-
-<p>Nairobi, Kenya</p>
-
-<p>+254 792 214367</p>
-
-<p>+254 748 658520</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
